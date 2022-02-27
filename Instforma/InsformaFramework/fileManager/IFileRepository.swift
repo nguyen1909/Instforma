@@ -29,3 +29,20 @@ protocol IFileRepository {
 }
 
 
+protocol IAppStorageDependencyModule {
+    var fileRepository: IFileRepository { get }
+}
+
+class ProdAppStorageDependencyModule: IAppStorageDependencyModule {
+    
+    var fileRepository: IFileRepository {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentURL = urls[0]
+        let filesBaseURL = documentURL.appendingPathComponent("@files")
+        return LocalFileRepository(baseURL: filesBaseURL)
+    }
+    
+    
+    
+}
+

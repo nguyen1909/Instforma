@@ -38,8 +38,9 @@ public class Theme{
     
     convenience init(data : String){
         let substringBegin = data.substring(from: 7)
-        let subsrintgEnd = substringBegin.substring(to: -1)
-        let themeItems = subsrintgEnd.components(separatedBy: ",")
+        let themeItems = substringBegin.components(separatedBy: ",")
+
+        
         
         self.init(name : themeItems[0],
                   inputRadius : Float(themeItems[1]) ?? 0.0,
