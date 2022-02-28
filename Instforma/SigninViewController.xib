@@ -9,9 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Instforma" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SigninViewController" customModule="Instforma" customModuleProvider="target">
             <connections>
-                <outlet property="formView" destination="MRb-2V-r3n" id="oaC-yi-jBu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,20 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRb-2V-r3n">
-                    <rect key="frame" x="35" y="134" width="344" height="428"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1c8-H7-RHx">
+                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="gnG-cT-X8P"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="YtQ-72-p8v"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <constraints>
-                <constraint firstItem="MRb-2V-r3n" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="6PG-xu-fJk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MRb-2V-r3n" secondAttribute="trailing" constant="35" id="Aai-xe-VL1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MRb-2V-r3n" secondAttribute="bottom" constant="300" id="CQ2-IG-pUl"/>
-                <constraint firstItem="MRb-2V-r3n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="SKk-wo-HeP"/>
-            </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <point key="canvasLocation" x="139" y="114"/>
         </view>
     </objects>
     <resources>

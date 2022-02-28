@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 public class SignIn : ITypeForm{
     //contient les champs :
@@ -14,5 +14,18 @@ public class SignIn : ITypeForm{
     //UIinput x fois
     //UIButton
     //NFC Button (hidden as default)
+    
+    var emailTextField: UITextField
+    var passwordTextField: UITextField
+    var buttonSignin: UIButton
+    var description: String{
+        return "Signin{\(self.emailTextField),\(self.passwordTextField),\(self.buttonSignin)}"
+    }
+    
+    init(emailTextField: UITextField, passwordTextField: UITextField, buttonSignin: UIButton){
+        self.emailTextField = emailTextField
+        self.passwordTextField = passwordTextField
+        self.buttonSignin = buttonSignin
+    }
     
 }
