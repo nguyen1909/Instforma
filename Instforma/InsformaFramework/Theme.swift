@@ -13,6 +13,8 @@ public class Theme{
     var fileRepository: IFileRepository!
 
     var name : String
+    var inputHeight : Float
+    var inputWidth : Float
     var inputRadius : Float
     var inputPadding : Float
     var inputMargin : Float
@@ -21,12 +23,14 @@ public class Theme{
     var baseColor : UIColor
     var backgroundColor : UIColor
     var description: String {
-        return "Theme {\(self.name),\(self.inputRadius),\(self.inputPadding),\(self.inputMargin),\(self.textColor),\(self.buttonColor),\(self.baseColor),\(self.backgroundColor)}"
+        return "Theme {\(self.name),\(self.inputWidth),\(self.inputHeight),\(self.inputRadius),\(self.inputPadding),\(self.inputMargin),\(self.textColor),\(self.buttonColor),\(self.baseColor),\(self.backgroundColor)}"
     }
     
-    init(name : String, inputRadius : Float, inputPadding : Float, inputMargin : Float, textColor : UIColor, buttonColor : UIColor, baseColor : UIColor, backgroundColor : UIColor){
+    init(name : String, inputHeight : Float, inputWidth : Float, inputRadius : Float, inputPadding : Float, inputMargin : Float, textColor : UIColor, buttonColor : UIColor, baseColor : UIColor, backgroundColor : UIColor){
         self.name = name
         self.inputRadius = inputRadius
+        self.inputHeight = inputHeight
+        self.inputWidth = inputWidth
         self.inputPadding = inputPadding
         self.inputMargin = inputMargin
         self.textColor = textColor
@@ -43,18 +47,20 @@ public class Theme{
         
         
         self.init(name : themeItems[0],
-                  inputRadius : Float(themeItems[1]) ?? 0.0,
-                  inputPadding : Float(themeItems[2]) ?? 0.0,
-                  inputMargin : Float(themeItems[3]) ?? 0.0,
-                  textColor : UIColor(named: themeItems[4]) ?? UIColor.red,
-                  buttonColor : UIColor(named :themeItems[5]) ?? UIColor.red,
-                  baseColor : UIColor(named: themeItems[6]) ?? UIColor.red,
-                  backgroundColor : UIColor(named: themeItems[7]) ?? UIColor.red)
+                  inputHeight : Float(themeItems[1]) ?? 0.0,
+                  inputWidth : Float(themeItems[2]) ?? 0.0,
+                  inputRadius : Float(themeItems[3]) ?? 0.0,
+                  inputPadding : Float(themeItems[4]) ?? 0.0,
+                  inputMargin : Float(themeItems[5]) ?? 0.0,
+                  textColor : UIColor(named: themeItems[6]) ?? UIColor.red,
+                  buttonColor : UIColor(named :themeItems[7]) ?? UIColor.red,
+                  baseColor : UIColor(named: themeItems[8]) ?? UIColor.red,
+                  backgroundColor : UIColor(named: themeItems[9]) ?? UIColor.red)
     }
     
     public func saveNewTheme(title : String) -> Void {
         let myThemeAsString = self.description
-        self.fileRepository.save(theme: ThemesFile(identifier: title, data: myThemeAsString.data(using: .utf8)), options: .init(override: true)) { err in
+        self.fileRepository.save(themeFile: ThemesFile(identifier: title, data: myThemeAsString.data(using: .utf8)), options: .init(override: true)) { err in
             guard err == nil else {
                 return
             }

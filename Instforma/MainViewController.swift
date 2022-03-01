@@ -22,12 +22,12 @@ class MainViewController: UIViewController {
 
         
         //preparation
-        let myTheme = Theme(name: "Autumn", inputRadius: 0.5, inputPadding: 0.3, inputMargin: 0.3, textColor: UIColor.red, buttonColor: UIColor.blue, baseColor: UIColor.brown, backgroundColor: UIColor.cyan)
+        let myTheme = Theme(name: "Autumn", inputHeight: 20, inputWidth: 100, inputRadius: 0.5, inputPadding: 0.3, inputMargin: 0.3, textColor: UIColor.red, buttonColor: UIColor.blue, baseColor: UIColor.brown, backgroundColor: UIColor.cyan)
         let title = myTheme.name
         let fullStrign = myTheme.description
         
         //save le theme autumn
-        self.fileRepository.save(theme: ThemesFile(identifier: title, data: fullStrign.data(using: .utf8)!), options: .init(override: true)) { err in
+        self.fileRepository.save(themeFile: ThemesFile(identifier: title, data: fullStrign.data(using: .utf8)!), options: .init(override: true)) { err in
             guard err == nil else {
                 return
             }
@@ -47,6 +47,7 @@ class MainViewController: UIViewController {
             //initialiser le theme a partir d'une string
             let newThemeNow = Theme(data: stringTheme)
             print (newThemeNow.description)
+            
         }
         
         

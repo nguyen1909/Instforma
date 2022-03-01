@@ -130,8 +130,8 @@ class LocalFileRepository: IFileRepository {
         return (try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)) != nil
     }
     
-    func save(theme: ThemesFile, options: FileRepositorySaveOptions?, completion: (Error?) -> Void) {
-        guard let fn = self.identifierToFileName(theme.identifier) else {
+    func save(themeFile: ThemesFile, options: FileRepositorySaveOptions?, completion: (Error?) -> Void) {
+        guard let fn = self.identifierToFileName(themeFile.identifier) else {
             completion(ErrorUtils.buildError(code: .invalidIdentifier))
             return
         }
@@ -143,16 +143,16 @@ class LocalFileRepository: IFileRepository {
             }
         }
         do {
-            try theme.data?.write(to: fileURL)
+            try themeFile.data?.write(to: fileURL)
             let currentDate = Date()
-            if let lfi = self.fileInfos.find(idenfifier: theme.identifier) {
+            if let lfi = self.fileInfos.find(idenfifier: themeFile.identifier) {
                 lfi.lastUpdatedDate = currentDate
-                lfi.expirationDate = theme.expirationDate
+                lfi.expirationDate = themeFile.expirationDate
             } else {
-                self.fileInfos.append(LocalFileInfo(identifier: theme.identifier,
+                self.fileInfos.append(LocalFileInfo(identifier: themeFile.identifier,
                                                     createdDate: currentDate,
                                                     lastUpdatedDate: currentDate,
-                                                    expirationDate: theme.expirationDate))
+                                                    expirationDate: themeFile.expirationDate))
             }
             self.writeFileInfos()
             completion(nil) // SUCCESS
