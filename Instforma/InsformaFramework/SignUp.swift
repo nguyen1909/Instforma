@@ -15,21 +15,22 @@ public class SignUp : ITypeForm{
     //UIButton
     //NFC Button (hidden as default)
     
-    var username: UITextField
-    var emailTextField: UITextField
-    var passwordTextField: UITextField
-    var dateBirthday: UITextField
-    var buttonSignup: UIButton
-    var description: String{
-        return "Signup{\(self.username),\(self.emailTextField),\(self.passwordTextField),\(self.dateBirthday),\(self.buttonSignup)}"
+    var username: UITextField?
+    var emailTextField: UITextField?
+    var passwordTextField: UITextField?
+    var dateBirthday: UITextField?
+    var buttonSignup: UIButton?
+    var theme: Theme!
+    var isNFC: Bool?
+    
+    init(theme: Theme, isNFC: Bool){
+        self.theme = theme
+        self.isNFC = isNFC
     }
     
-    init(username: UITextField, emailTextField: UITextField, passwordTextField: UITextField, dateBirthday: UITextField ,buttonSignup: UIButton){
-        self.username = username
-        self.emailTextField = emailTextField
-        self.passwordTextField = passwordTextField
-        self.dateBirthday = dateBirthday
-        self.buttonSignup = buttonSignup
-    }
+    // Créer une fonction "build" qui prend en paramètre une scroll view ou une view et qui va contenir tout les champs
+    
+    
+    
     
 }

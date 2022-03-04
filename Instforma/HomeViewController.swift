@@ -12,6 +12,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let myTheme = Theme(name: "Autumn", inputHeight: 20, inputWidth: 100, inputRadius: 0.5, inputPadding: 0.3, inputMargin: 0.3, textColor: UIColor.red, buttonColor: UIColor.blue, baseColor: UIColor.brown, backgroundColor: UIColor.cyan)
+        
+        let myForm = Form(theme: <#T##Theme#>)
+        
         // Do any additional setup after loading the view.
     }
     
