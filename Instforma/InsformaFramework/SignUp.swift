@@ -31,6 +31,4 @@ public class SignUp : ITypeForm{
     // Créer une fonction "build" qui prend en paramètre une scroll view ou une view et qui va contenir tout les champs
     
     
-    
-    
 }

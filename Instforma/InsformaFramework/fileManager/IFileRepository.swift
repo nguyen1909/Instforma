@@ -21,11 +21,27 @@ struct FileRepositorySaveOptions {
 }
 
 protocol IFileRepository {
-    func save(theme: ThemesFile, options: FileRepositorySaveOptions?, completion: (Error?) -> Void)
+
+    func save(themeFile: ThemesFile, options: FileRepositorySaveOptions?, completion: (Error?) -> Void)
     func get(identifier: String, completion: (Error?, ThemesFile?) -> Void)
     func delete(identifier: String, completion: (Error?) -> Void)
     func getAll(completion: (Error?, [ThemesFile]?) -> Void)
     func clear(completion: (Error?) -> Void)
 }
 
+protocol IAppStorageDependencyModule {
+    var fileRepository: IFileRepository { get }
+}
 
+class ProdAppStorageDependencyModule: IAppStorageDependencyModule {
+    
+    var fileRepository: IFileRepository {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentURL = urls[0]
+        let filesBaseURL = documentURL.appendingPathComponent("@files")
+        return LocalFileRepository(baseURL: filesBaseURL)
+    }
+    
+    
+    
+}

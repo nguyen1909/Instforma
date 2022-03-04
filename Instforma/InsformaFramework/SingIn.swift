@@ -14,7 +14,7 @@ public class SignIn : ITypeForm{
     //UIinput x fois
     //UIButton
     //NFC Button (hidden as default)
-    
+
     var emailTextField: UITextField
     var passwordTextField: UITextField
     var buttonSignin: UIButton
