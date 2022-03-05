@@ -7,28 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		F4B28A5B27CD366E0078DB81 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B28A5927CD366E0078DB81 /* HomeViewController.swift */; };
 		F4B28A5C27CD366E0078DB81 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B28A5A27CD366E0078DB81 /* HomeViewController.xib */; };
 		F4B28A5F27CD39650078DB81 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B28A5D27CD39650078DB81 /* SigninViewController.swift */; };
 		F4B28A6027CD39650078DB81 /* SigninViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B28A5E27CD39650078DB81 /* SigninViewController.xib */; };
 		F4B28A6327CD39720078DB81 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B28A6127CD39720078DB81 /* SignupViewController.swift */; };
 		F4B28A6427CD39720078DB81 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B28A6227CD39720078DB81 /* SignupViewController.xib */; };
-=======
->>>>>>> master
 		F60EF65027CA8A9500EBC3B2 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EF64F27CA8A9500EBC3B2 /* LocalRepository.swift */; };
 		F60EF65327CA8B2700EBC3B2 /* IFileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EF65227CA8B2700EBC3B2 /* IFileRepository.swift */; };
 		F60EF65627CA8B6400EBC3B2 /* ErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EF65527CA8B6400EBC3B2 /* ErrorUtils.swift */; };
 		F63C1DB227C6DF7F00BD84D2 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DB127C6DF7F00BD84D2 /* Form.swift */; };
 		F63C1DB427C6DF9100BD84D2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DB327C6DF9100BD84D2 /* Theme.swift */; };
-		F63C1DB827C6DFDC00BD84D2 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DB727C6DFDC00BD84D2 /* SignUp.swift */; };
-		F63C1DBA27C6DFE900BD84D2 /* SingIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DB927C6DFE900BD84D2 /* SingIn.swift */; };
 		F63C1DBC27C6E07500BD84D2 /* NFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DBB27C6E07500BD84D2 /* NFC.swift */; };
 		F63C1DBE27C6E1F000BD84D2 /* ITypeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63C1DBD27C6E1F000BD84D2 /* ITypeForm.swift */; };
 		F67C1CBA279C0347002986A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C1CB9279C0347002986A9 /* AppDelegate.swift */; };
 		F67C1CC3279C0348002986A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67C1CC2279C0348002986A9 /* Assets.xcassets */; };
 		F67C1CC6279C0348002986A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C1CC4279C0348002986A9 /* LaunchScreen.storyboard */; };
-<<<<<<< HEAD
+		F67C1CCF279C18AF002986A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C1CCD279C18AF002986A9 /* MainViewController.swift */; };
+		F67C1CD0279C18AF002986A9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67C1CCE279C18AF002986A9 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,20 +34,11 @@
 		F4B28A5E27CD39650078DB81 /* SigninViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SigninViewController.xib; sourceTree = "<group>"; };
 		F4B28A6127CD39720078DB81 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F4B28A6227CD39720078DB81 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
-=======
-		F67C1CCF279C18AF002986A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C1CCD279C18AF002986A9 /* MainViewController.swift */; };
-		F67C1CD0279C18AF002986A9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67C1CCE279C18AF002986A9 /* MainViewController.xib */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
->>>>>>> master
 		F60EF64F27CA8A9500EBC3B2 /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		F60EF65227CA8B2700EBC3B2 /* IFileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFileRepository.swift; sourceTree = "<group>"; };
 		F60EF65527CA8B6400EBC3B2 /* ErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
 		F63C1DB127C6DF7F00BD84D2 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		F63C1DB327C6DF9100BD84D2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		F63C1DB727C6DFDC00BD84D2 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
-		F63C1DB927C6DFE900BD84D2 /* SingIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingIn.swift; sourceTree = "<group>"; };
 		F63C1DBB27C6E07500BD84D2 /* NFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFC.swift; sourceTree = "<group>"; };
 		F63C1DBD27C6E1F000BD84D2 /* ITypeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITypeForm.swift; sourceTree = "<group>"; };
 		F67C1CB6279C0347002986A9 /* Instforma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instforma.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,11 +46,8 @@
 		F67C1CC2279C0348002986A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F67C1CC5279C0348002986A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F67C1CC7279C0348002986A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		F67C1CCD279C18AF002986A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F67C1CCE279C18AF002986A9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
->>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +85,6 @@
 				F60EF65127CA8AFC00EBC3B2 /* fileManager */,
 				F63C1DB127C6DF7F00BD84D2 /* Form.swift */,
 				F63C1DB327C6DF9100BD84D2 /* Theme.swift */,
-				F63C1DB727C6DFDC00BD84D2 /* SignUp.swift */,
-				F63C1DB927C6DFE900BD84D2 /* SingIn.swift */,
 				F63C1DBB27C6E07500BD84D2 /* NFC.swift */,
 				F63C1DBD27C6E1F000BD84D2 /* ITypeForm.swift */,
 			);
@@ -133,17 +115,14 @@
 				F67C1CC2279C0348002986A9 /* Assets.xcassets */,
 				F67C1CC4279C0348002986A9 /* LaunchScreen.storyboard */,
 				F67C1CC7279C0348002986A9 /* Info.plist */,
-<<<<<<< HEAD
 				F4B28A5927CD366E0078DB81 /* HomeViewController.swift */,
 				F4B28A5A27CD366E0078DB81 /* HomeViewController.xib */,
 				F4B28A5D27CD39650078DB81 /* SigninViewController.swift */,
 				F4B28A5E27CD39650078DB81 /* SigninViewController.xib */,
 				F4B28A6127CD39720078DB81 /* SignupViewController.swift */,
 				F4B28A6227CD39720078DB81 /* SignupViewController.xib */,
-=======
 				F67C1CCD279C18AF002986A9 /* MainViewController.swift */,
 				F67C1CCE279C18AF002986A9 /* MainViewController.xib */,
->>>>>>> master
 			);
 			path = Instforma;
 			sourceTree = "<group>";
@@ -206,17 +185,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				F4B28A6427CD39720078DB81 /* SignupViewController.xib in Resources */,
 				F67C1CC6279C0348002986A9 /* LaunchScreen.storyboard in Resources */,
 				F4B28A6027CD39650078DB81 /* SigninViewController.xib in Resources */,
 				F67C1CC3279C0348002986A9 /* Assets.xcassets in Resources */,
 				F4B28A5C27CD366E0078DB81 /* HomeViewController.xib in Resources */,
-=======
 				F67C1CC6279C0348002986A9 /* LaunchScreen.storyboard in Resources */,
 				F67C1CD0279C18AF002986A9 /* MainViewController.xib in Resources */,
 				F67C1CC3279C0348002986A9 /* Assets.xcassets in Resources */,
->>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,27 +205,18 @@
 			files = (
 				F67C1CBA279C0347002986A9 /* AppDelegate.swift in Sources */,
 				F63C1DBE27C6E1F000BD84D2 /* ITypeForm.swift in Sources */,
-				F63C1DB827C6DFDC00BD84D2 /* SignUp.swift in Sources */,
-<<<<<<< HEAD
 				F4B28A5F27CD39650078DB81 /* SigninViewController.swift in Sources */,
-=======
->>>>>>> master
 				F60EF65627CA8B6400EBC3B2 /* ErrorUtils.swift in Sources */,
 				F60EF65327CA8B2700EBC3B2 /* IFileRepository.swift in Sources */,
 				F63C1DB427C6DF9100BD84D2 /* Theme.swift in Sources */,
 				F63C1DBC27C6E07500BD84D2 /* NFC.swift in Sources */,
-<<<<<<< HEAD
 				F4B28A6327CD39720078DB81 /* SignupViewController.swift in Sources */,
-				F63C1DBA27C6DFE900BD84D2 /* SingIn.swift in Sources */,
 				F63C1DB227C6DF7F00BD84D2 /* Form.swift in Sources */,
 				F60EF65027CA8A9500EBC3B2 /* LocalRepository.swift in Sources */,
 				F4B28A5B27CD366E0078DB81 /* HomeViewController.swift in Sources */,
-=======
 				F67C1CCF279C18AF002986A9 /* MainViewController.swift in Sources */,
-				F63C1DBA27C6DFE900BD84D2 /* SingIn.swift in Sources */,
 				F63C1DB227C6DF7F00BD84D2 /* Form.swift in Sources */,
 				F60EF65027CA8A9500EBC3B2 /* LocalRepository.swift in Sources */,
->>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
