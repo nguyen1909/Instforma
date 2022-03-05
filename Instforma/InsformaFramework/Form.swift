@@ -14,6 +14,8 @@ public class Form {
     var theme: Theme!
     var isNFC: Bool
 
+    var iSpacing = Float(0.0)
+
 
     
     init(theme: Theme, inputs: [UITextField] ,isNFC: Bool){
@@ -52,32 +54,49 @@ public class Form {
     private func buildSingIn(targetView: UIView){
         
         if(self.inputs.isEmpty){
+            
             let emailTextField = UITextField()
+            emailTextField.placeholder = "Email"
+
             let passwordTextField = UITextField()
+            passwordTextField.placeholder = "Password"
             
             self.inputs.append(emailTextField)
             self.inputs.append(passwordTextField)
         }
-        
+    
         for input in inputs {
             targetView.addSubview(input)
         }
+        applyThemeToInput(inputs: self.inputs)
+        
+        
         let buttonSignin = UIButton()
+        buttonSignin.setTitle("Submit", for: UIControl.State.normal)
+        buttonSignin.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        buttonSignin.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignin)
+        
         targetView.addSubview(buttonSignin)
     }
     
     private func applyThemeToInput(inputs: [UITextField]){
-        
+        iSpacing = theme.inputMargin
+
         for input in inputs {
             //Tout les parametres d'un input
-            input.layer.cornerRadius = CGFloat(self.theme.inputRadius)
-            input.frame.size.width = CGFloat(self.theme.inputWidth)
-            input.frame.size.height = CGFloat(self.theme.inputHeight)
-            input.layoutMargins = UIEdgeInsets(top: CGFloat(self.theme.inputMargin), left: CGFloat(self.theme.inputMargin), bottom: CGFloat(self.theme.inputMargin), right: CGFloat(self.theme.inputMargin))
-            input.textColor = self.theme.textColor
-            input.tintColor = self.theme.baseColor
-            input.backgroundColor = self.theme.backgroundColor
+            input.layer.cornerRadius = CGFloat(theme.inputRadius)
+            input.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
+            iSpacing = iSpacing + theme.inputHeight + theme.inputMargin
+            input.frame.size.width = CGFloat(theme.inputWidth)
+            input.frame.size.height = CGFloat(theme.inputHeight)
+            input.setLeftPaddingPoints(CGFloat(theme.inputPadding))
+            input.setRightPaddingPoints(CGFloat(theme.inputPadding))
+
+            input.layoutMargins = UIEdgeInsets(top: CGFloat(theme.inputMargin), left: CGFloat(theme.inputMargin), bottom: CGFloat(theme.inputMargin), right: CGFloat(theme.inputMargin))
+            input.textColor = theme.textColor
+            input.tintColor = theme.baseColor
+            input.backgroundColor = theme.backgroundColor
             
         }
         
@@ -86,8 +105,11 @@ public class Form {
     private func buildSingUp(targetView: UIView){
         if(self.inputs.isEmpty){
             let nameTextField = UITextField()
+            nameTextField.placeholder = "Name"
             let emailTextField = UITextField()
+            emailTextField.placeholder = "Email"
             let passwordTextField = UITextField()
+            passwordTextField.placeholder = "Password"
             let gender = UITextField()
             
             self.inputs.append(nameTextField)
@@ -107,11 +129,8 @@ public class Form {
     
     private func applyThemeToButton(button: UIButton){
         button.layer.cornerRadius = CGFloat(self.theme.inputRadius)
-        button.frame.size.width = CGFloat(self.theme.inputWidth)
-        button.frame.size.height = CGFloat(self.theme.inputHeight)
         button.layoutMargins = UIEdgeInsets(top: CGFloat(self.theme.inputMargin), left: CGFloat(self.theme.inputMargin), bottom: CGFloat(self.theme.inputMargin), right: CGFloat(self.theme.inputMargin))
         button.contentEdgeInsets = UIEdgeInsets(top: CGFloat(self.theme.inputPadding), left: CGFloat(self.theme.inputPadding), bottom: CGFloat(self.theme.inputPadding), right: CGFloat(self.theme.inputPadding))
-        button.titleLabel?.textColor = self.theme.textColor
         button.tintColor = self.theme.buttonColor
         button.backgroundColor = self.theme.backgroundColor
     }
@@ -132,4 +151,18 @@ public class Form {
         }
     }
     
+}
+
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
 }
