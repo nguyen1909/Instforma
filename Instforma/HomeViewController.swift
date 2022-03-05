@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         
         let myForm = Form(theme: myTheme)
         
-        myForm.build(targetView: scrollView)
+        myForm.build(signInFormTargetView: scrollView)
         
         
         // Do any additional setup after loading the view.

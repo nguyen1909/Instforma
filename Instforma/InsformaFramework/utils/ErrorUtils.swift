@@ -14,6 +14,7 @@ class ErrorUtils {
         case fileAlreadyExists
         case fileNotFound
         case invalidFileInfo
+        case viewIsTooSmall
     }
     
     private static var errors = ErrorUtils.generateErrors()
@@ -23,7 +24,8 @@ class ErrorUtils {
             Code.invalidIdentifier: "Please check your identifier",
             Code.fileAlreadyExists: "File exists at path, you must specified the override option",
             Code.fileNotFound: "File not found with the given identifier",
-            Code.invalidFileInfo: "File info is corrupted"
+            Code.invalidFileInfo: "File info is corrupted",
+            Code.viewIsTooSmall: "View is too small to generate a form with this Theme"
         ]
     }
 
