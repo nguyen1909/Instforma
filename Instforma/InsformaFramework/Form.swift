@@ -63,6 +63,7 @@ public class Form {
             targetView.addSubview(input)
         }
         let buttonSignin = UIButton()
+        applyThemeToButton(button: buttonSignin)
         targetView.addSubview(buttonSignin)
     }
     
@@ -70,10 +71,14 @@ public class Form {
         
         for input in inputs {
             //Tout les parametres d'un input
-            input.textColor = self.theme.textColor
-            input.backgroundColor = self.theme.backgroundColor
+            input.layer.cornerRadius = CGFloat(self.theme.inputRadius)
             input.frame.size.width = CGFloat(self.theme.inputWidth)
             input.frame.size.height = CGFloat(self.theme.inputHeight)
+            input.layoutMargins = UIEdgeInsets(top: CGFloat(self.theme.inputMargin), left: CGFloat(self.theme.inputMargin), bottom: CGFloat(self.theme.inputMargin), right: CGFloat(self.theme.inputMargin))
+            //input = UIEdgeInsets(top: CGFloat(self.theme.inputPadding), left: CGFloat(self.theme.inputPadding), bottom: CGFloat(self.theme.inputPadding), right: CGFloat(self.theme.inputPadding))
+            input.textColor = self.theme.textColor
+            input.tintColor = self.theme.baseColor
+            input.backgroundColor = self.theme.backgroundColor
             
         }
         
@@ -97,15 +102,20 @@ public class Form {
         }
         
         let buttonSignup = UIButton()
-        buttonSignup.backgroundColor = self.theme.backgroundColor
-        buttonSignup.frame.size.width = CGFloat(self.theme.inputWidth)
-        buttonSignup.frame.size.height = CGFloat(self.theme.inputHeight)
-        buttonSignup.titleLabel?.textColor = self.theme.textColor
-        //buttonSignup.layer.borderColor = CGColor(self.theme.baseColor)
-        buttonSignup.layer.cornerRadius = CGFloat(self.theme.inputRadius)
-        //buttonSignup.layoutMargins = UIEdgeInsets(self.theme.inputMargin)
-
+        applyThemeToButton(button: buttonSignup)
         targetView.addSubview(buttonSignup)
+    }
+    
+    private func applyThemeToButton(button: UIButton){
+        button.layer.cornerRadius = CGFloat(self.theme.inputRadius)
+        button.frame.size.width = CGFloat(self.theme.inputWidth)
+        button.frame.size.height = CGFloat(self.theme.inputHeight)
+        button.layoutMargins = UIEdgeInsets(top: CGFloat(self.theme.inputMargin), left: CGFloat(self.theme.inputMargin), bottom: CGFloat(self.theme.inputMargin), right: CGFloat(self.theme.inputMargin))
+        button.contentEdgeInsets = UIEdgeInsets(top: CGFloat(self.theme.inputPadding), left: CGFloat(self.theme.inputPadding), bottom: CGFloat(self.theme.inputPadding), right: CGFloat(self.theme.inputPadding))
+        button.titleLabel?.textColor = self.theme.textColor
+        button.tintColor = self.theme.buttonColor
+        //button.layer.borderColor = CGColor(self.theme.baseColor)
+        button.backgroundColor = self.theme.backgroundColor
     }
     
     func checkView(targetView : UIView) -> Bool{
