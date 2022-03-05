@@ -44,7 +44,7 @@ public class Form {
         buildSingIn(targetView: signInFormTargetView)
     }
     
-    func build(signUpFormTargetView: UIView){
+    func build(signUpFormTargetView: UIScrollView){
         if(!checkView(targetView: signUpFormTargetView)){
             print(ErrorUtils.buildError(code: .viewIsTooSmall))
         }
@@ -69,7 +69,6 @@ public class Form {
             targetView.addSubview(input)
         }
         applyThemeToInput(inputs: self.inputs)
-        
         
         let buttonSignin = UIButton()
         buttonSignin.setTitle("Submit", for: UIControl.State.normal)
@@ -110,21 +109,37 @@ public class Form {
             emailTextField.placeholder = "Email"
             let passwordTextField = UITextField()
             passwordTextField.placeholder = "Password"
-            let gender = UITextField()
             
             self.inputs.append(nameTextField)
             self.inputs.append(emailTextField)
             self.inputs.append(passwordTextField)
-            self.inputs.append(gender)
         }
         
         for input in inputs {
             targetView.addSubview(input)
         }
+        applyThemeToInput(inputs: self.inputs)
+        
+        let items = ["Male" , "Female"]
+        let gender = UISegmentedControl(items : items)
+        gender.layer.cornerRadius = CGFloat(theme.inputRadius)
+        gender.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
+        iSpacing = iSpacing + theme.inputHeight + theme.inputMargin
+        gender.frame.size.width = CGFloat(theme.inputWidth)
+        gender.frame.size.height = CGFloat(theme.inputHeight)
+
+        gender.layoutMargins = UIEdgeInsets(top: CGFloat(theme.inputMargin), left: CGFloat(theme.inputMargin), bottom: CGFloat(theme.inputMargin), right: CGFloat(theme.inputMargin))
+        gender.tintColor = theme.baseColor
+        gender.backgroundColor = theme.backgroundColor
         
         let buttonSignup = UIButton()
+        buttonSignup.setTitle("Submit", for: UIControl.State.normal)
+        buttonSignup.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        buttonSignup.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignup)
+        
         targetView.addSubview(buttonSignup)
+        targetView.addSubview(gender)
     }
     
     private func applyThemeToButton(button: UIButton){
@@ -152,7 +167,6 @@ public class Form {
     }
     
 }
-
 
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){

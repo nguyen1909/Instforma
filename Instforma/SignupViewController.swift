@@ -8,22 +8,18 @@
 import UIKit
 
 class SignupViewController: UIViewController {
-
+    
+    @IBOutlet weak var targetView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let myTheme = Theme(name: "Basic", inputHeight: 50, inputWidth: 300, inputRadius: 5, inputPadding: 15, inputMargin: 5, textColor: UIColor.black, buttonColor: UIColor.gray, baseColor: UIColor.brown, backgroundColor: UIColor.lightGray)
+                
+        let myForm = Form(theme: myTheme)
+        
+        myForm.build(signUpFormTargetView: targetView)
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
