@@ -75,7 +75,6 @@ public class Form {
             input.frame.size.width = CGFloat(self.theme.inputWidth)
             input.frame.size.height = CGFloat(self.theme.inputHeight)
             input.layoutMargins = UIEdgeInsets(top: CGFloat(self.theme.inputMargin), left: CGFloat(self.theme.inputMargin), bottom: CGFloat(self.theme.inputMargin), right: CGFloat(self.theme.inputMargin))
-            //input = UIEdgeInsets(top: CGFloat(self.theme.inputPadding), left: CGFloat(self.theme.inputPadding), bottom: CGFloat(self.theme.inputPadding), right: CGFloat(self.theme.inputPadding))
             input.textColor = self.theme.textColor
             input.tintColor = self.theme.baseColor
             input.backgroundColor = self.theme.backgroundColor
@@ -114,7 +113,6 @@ public class Form {
         button.contentEdgeInsets = UIEdgeInsets(top: CGFloat(self.theme.inputPadding), left: CGFloat(self.theme.inputPadding), bottom: CGFloat(self.theme.inputPadding), right: CGFloat(self.theme.inputPadding))
         button.titleLabel?.textColor = self.theme.textColor
         button.tintColor = self.theme.buttonColor
-        //button.layer.borderColor = CGColor(self.theme.baseColor)
         button.backgroundColor = self.theme.backgroundColor
     }
     
