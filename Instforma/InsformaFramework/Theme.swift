@@ -10,7 +10,8 @@ import UIKit
 
 public class Theme{
     
-    var fileRepository: IFileRepository!
+    var fileRepository  = (UIApplication.shared.delegate as? AppDelegate)!.dependencyModule.fileRepository
+    
 
     var name : String
     var inputHeight : Float
@@ -40,6 +41,7 @@ public class Theme{
     }
     
     
+    
     convenience init(data : String){
         let substringBegin = data.substring(from: 7)
         let themeItems = substringBegin.components(separatedBy: ",")
@@ -63,6 +65,25 @@ public class Theme{
                 return
             }
         }
+    }
+    
+    
+    public func getSavedThemes() -> [Theme] {
+        var savedThemes: [Theme] = []
+        self.fileRepository.getAll { err, items in
+            guard let allThemes = items else {
+                return
+            }
+            for savedTheme in allThemes {
+                guard let stringData = savedTheme.data else {
+                    return
+                }
+                let stringTheme = String(data: stringData, encoding: .utf8)!
+                let newThemeNow = Theme(data: stringTheme)
+                savedThemes.append(newThemeNow)
+            }
+        }
+        return savedThemes
     }
 
 }
@@ -91,22 +112,3 @@ extension String {
 }
 
 
-
-//Du coup on peut encrire le theme sous le format de string,
-//Ainsi il faut faire un toString de l'objet Theme et apres il faut aussi ecrire un constructeur qui prend une chaine de chars en param et retourne un Theme
-
-/*
-Pour recuperer tout les Themes
- Ca sera dans la classe Form
- self.fileRepository.getAll { err, items in
-     guard let themes = items else {
-         self.themes = []
-         return
-     }
-     self.themes = themes
- }
-
-
-
-
- */

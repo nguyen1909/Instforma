@@ -13,6 +13,8 @@ public class Form {
     var inputs: [UITextField]
     var theme: Theme!
     var isNFC: Bool
+
+
     
     init(theme: Theme, inputs: [UITextField] ,isNFC: Bool){
         self.inputs = inputs
