@@ -51,4 +51,26 @@ public class Form {
         
     }
     
+    func checkView(targetView : UIView) -> Bool{
+        let largeur = Float(300.0)
+        let hauteur = Float(400.0)
+        let margin = theme.inputMargin as Float
+        let valid : Bool
+
+        let calculLargeur = largeur + 2.00 * margin
+        let calculHauteur = hauteur + 2.00 * margin
+
+        let screenWidth = Float(targetView.bounds.size.width)
+        let screenHeight = Float(targetView.bounds.size.height)
+
+        if (screenWidth < calculLargeur && screenHeight < calculHauteur) {
+            valid = true
+            return valid
+        }
+        else {
+            valid = false
+            return valid
+        }
+    }
+    
 }
