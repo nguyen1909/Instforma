@@ -72,13 +72,15 @@ public class Form {
         }
         applyThemeToInput(inputs: self.inputs)
         
-        let buttonSignin = UIButton()
+        let buttonSignin = UIButton(type: .system,
+                                    primaryAction: UIAction() { _ in
+                                        self.didButtonClick()
+                                     })
         buttonSignin.setTitle("Submit", for: UIControl.State.normal)
         buttonSignin.setTitleColor(UIColor.black, for: UIControl.State.normal)
         buttonSignin.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignin)
         
-        buttonSignin.addTarget(self.targetView, action: #selector(didButtonClick), for: .touchUpInside)
 
 
         
@@ -86,8 +88,21 @@ public class Form {
     }
     
     
-    @objc func didButtonClick(_ sender: UIButton!) {
-        print("prout")
+    private func didButtonClick() {
+        var userInputValues = [String]()
+        for input in inputs {
+            guard let stringInput = input.text else {
+                return
+            }
+            userInputValues.append(stringInput)
+        }
+                        
+        let vc: UIViewController = targetView.parentViewController!
+
+        let allert = AllertRepporting()
+        allert.showMessage(title: "User Input Was :", msg: userInputValues.description, on: vc)
+
+        
     }
 
 
@@ -146,16 +161,14 @@ public class Form {
         gender.tintColor = theme.baseColor
         gender.backgroundColor = theme.backgroundColor
         
-        let buttonSignup = UIButton(type: .system)
+        let buttonSignup = UIButton(type: .system,
+                                    primaryAction: UIAction() { _ in
+                                        self.didButtonClick()
+                                     })
         buttonSignup.setTitle("Submit", for: UIControl.State.normal)
         buttonSignup.setTitleColor(UIColor.black, for: UIControl.State.normal)
         buttonSignup.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignup)
-        
-        buttonSignup.addTarget(self.targetView, action: #selector(didButtonClick), for: .touchUpInside)
-
-
-        
         targetView.addSubview(buttonSignup)
         targetView.addSubview(gender)
     }
@@ -198,5 +211,20 @@ extension UITextField {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.rightView = paddingView
         self.rightViewMode = .always
+    }
+}
+
+class AllertRepporting {
+    func showMessage(title: String, msg: String, `on` controller: UIViewController) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+}
+
+
+extension UIResponder {
+    public var parentViewController: UIViewController? {
+        return next as? UIViewController ?? next?.parentViewController
     }
 }
