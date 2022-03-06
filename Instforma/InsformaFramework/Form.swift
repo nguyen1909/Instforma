@@ -14,6 +14,7 @@ public class Form {
     var theme: Theme!
     var isNFC: Bool
 
+    var targetView: UIView = UIView()
     var iSpacing = Float(0.0)
 
 
@@ -35,7 +36,7 @@ public class Form {
         self.theme = theme
         self.isNFC = false
     }
-
+    
     
     func build(signInFormTargetView: UIView){
         if(!checkView(targetView: signInFormTargetView)){
@@ -52,7 +53,8 @@ public class Form {
     }
     
     private func buildSingIn(targetView: UIView){
-        
+        self.targetView = targetView
+
         if(self.inputs.isEmpty){
             
             let emailTextField = UITextField()
@@ -76,8 +78,19 @@ public class Form {
         buttonSignin.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignin)
         
+        buttonSignin.addTarget(self.targetView, action: #selector(didButtonClick), for: .touchUpInside)
+
+
+        
         targetView.addSubview(buttonSignin)
     }
+    
+    
+    @objc func didButtonClick(_ sender: UIButton!) {
+        print("prout")
+    }
+
+
     
     private func applyThemeToInput(inputs: [UITextField]){
         iSpacing = theme.inputMargin
@@ -102,6 +115,7 @@ public class Form {
     }
     
     private func buildSingUp(targetView: UIView){
+        self.targetView = targetView
         if(self.inputs.isEmpty){
             let nameTextField = UITextField()
             nameTextField.placeholder = "Name"
@@ -132,15 +146,21 @@ public class Form {
         gender.tintColor = theme.baseColor
         gender.backgroundColor = theme.backgroundColor
         
-        let buttonSignup = UIButton()
+        let buttonSignup = UIButton(type: .system)
         buttonSignup.setTitle("Submit", for: UIControl.State.normal)
         buttonSignup.setTitleColor(UIColor.black, for: UIControl.State.normal)
         buttonSignup.frame = CGRect(x: CGFloat(theme.inputMargin), y: CGFloat(iSpacing), width: CGFloat(theme.inputWidth), height: CGFloat(theme.inputHeight))
         applyThemeToButton(button: buttonSignup)
         
+        buttonSignup.addTarget(self.targetView, action: #selector(didButtonClick), for: .touchUpInside)
+
+
+        
         targetView.addSubview(buttonSignup)
         targetView.addSubview(gender)
     }
+    
+
     
     private func applyThemeToButton(button: UIButton){
         button.layer.cornerRadius = CGFloat(self.theme.inputRadius)
